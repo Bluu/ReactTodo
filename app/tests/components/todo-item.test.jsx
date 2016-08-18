@@ -10,4 +10,20 @@ describe('Todo Item', () => {
   it('should exist', () => {
     expect(TodoItem).toExist();
   });
+
+  it('should call onToggle prop with id on click', () => {
+    const todoData = {
+      id: 199,
+      text: 'Walk the dog',
+      completed: true
+    };
+
+    const spy = expect.createSpy();
+    const todoItem = TestUtils.renderIntoDocument(<TodoItem { ...todoData } onToggle={ spy }/>);
+    const $el = $(ReactDOM.findDOMNode(todoItem));
+
+    TestUtils.Simulate.click($el[0]);
+
+    expect(spy).toHaveBeenCalledWith(199);
+  });
 });
