@@ -6,13 +6,13 @@ const actions = require('actions');
 export const TodoForm = React.createClass({
   addTodo: function (e) {
     e.preventDefault();
-    
+
     const { dispatch } = this.props;
     const todo = this.refs.todo.value;
 
     if (todo.length) {
       this.refs.todo.value = '';
-      dispatch(actions.addTodo(todo));
+      dispatch(actions.startAddTodo(todo));
     } else {
       this.refs.todo.focus();
     }
