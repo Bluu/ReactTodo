@@ -93,6 +93,12 @@ export const startToggleTodo = (id, completed) => {
   };
 };
 
+export const login = (uid) => {
+  return {
+    type: 'LOGIN',
+    uid
+  };
+};
 
 export const startLogin = () => {
   return (dispatch, getState) => {
@@ -101,6 +107,12 @@ export const startLogin = () => {
     }).catch((error) => {
       console.log('Unable to auth', error);
     });
+  };
+};
+
+export const logout = () => {
+  return {
+    type: 'LOGOUT'
   };
 };
 
